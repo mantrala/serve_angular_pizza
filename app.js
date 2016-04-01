@@ -2,7 +2,7 @@ var app = angular.module("angularPizza", ['ngRoute']);
 
 app.config(function($routeProvider) {
   $routeProvider
-    .when('/',
+    .when('/pizza',
         {
           controller: 'pizzaController',
           templateUrl: '/partials/pizza.html'

@@ -3,12 +3,8 @@
     <th>Id</th>
     <th>Name</th>
   </tr>
-  <tr>
-    <td>1</td>
-    <td>pepporoni</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>paneer</td>
+  <tr ng-repeat="topping in toppings | orderBy:'-id'" data-id="{{ topping.id  }}">
+    <td>{{ topping.id }}</td>
+    <td>{{ topping.name }}</td>
   </tr>
 </table>

@@ -4,14 +4,9 @@
     <th>Name</th>
     <th>Description</th>
   </tr>
-  <tr>
-    <td>1</td>
-    <td>bellobeche</td>
-    <td>Nice and yummy</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>bellobeche</td>
-    <td>Nice and yummy</td>
+  <tr ng-repeat="pizza in pizzas | orderBy:'-id'" data-id="{{ pizza.id }}">
+    <td>{{ pizza.id }}</td>
+    <td>{{ pizza.name }}</td>
+    <td>{{ pizza.description }}</td>
   </tr>
 </table>

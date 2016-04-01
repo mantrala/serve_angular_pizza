@@ -15,12 +15,12 @@
         <div class="navbar-header">
           <a class="navbar-brand" ui-sref="pizzas">Angular Pizza</a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" ng-controller="navBarController">
           <ul class="nav navbar-nav">
-            <li class="active"><a href='#/'>Pizza</a></li>
+            <li ng-class="{'active':getClass('/pizza')}"><a href='#/pizza'>Pizza</a></li>
           </ul>
           <ul class="nav navbar-nav">
-            <li><a href="#/toppings">Toppings</a></li>
+            <li ng-class="{'active':getClass('/toppings')}"><a href="#/toppings">Toppings</a></li>
           </ul>
         </div>
       </div>
@@ -34,8 +34,11 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.min.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/controllers/pizzaController.js"></script>
-    <script type="text/javascript" src="js/controllers/toppingsController.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="controllers/navBarController.js"></script>
+    <script type="text/javascript" src="controllers/pizzaController.js"></script>
+    <script type="text/javascript" src="controllers/toppingsController.js"></script>
+    <script type="text/javascript" src="services/pizzaService.js"></script>
+    <script type="text/javascript" src="services/toppingsService.js"></script>
   </body>
 </html>
