@@ -11,5 +11,10 @@ app.config(function($routeProvider) {
         {
           controller: 'toppingsController',
           templateUrl: 'partials/toppings.html'
+        })
+    .when('/pizza/:pizzaID-:pizzaName',
+        {
+          controller: 'pizzaToppingsController',
+          templateUrl: 'partials/pizza_toppings.html'
         });
 });

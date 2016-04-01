@@ -2,12 +2,19 @@
 <table class="table table-striped table-hover">
   <tr>
     <th>Id</th>
-    <th>Name</th>
+    <th>Pizza Name</th>
     <th>Description</th>
+    <th>Action</th>
   </tr>
-  <tr ng-repeat="pizza in pizzas | orderBy:'-id'" data-id="{{ pizza.id }}">
+  <tr ng-repeat="pizza in pizzas | orderBy:'-id'" data-id="{{ pizza.id }}"
+    ng-model="showEdit" ng-mouseenter="showEdit=true"
+    ng-mouseleave="showEdit=false" >
     <td>{{ pizza.id }}</td>
     <td>{{ pizza.name }}</td>
     <td>{{ pizza.description }}</td>
+    <td>
+      <a href="#/pizza/{{pizza.id}}-{{pizza.name}}" role="button" class="btn btn-info btn-xs" ng-show="showEdit"
+              >Edit</a>
+    </td>
   </tr>
 </table>

@@ -1,4 +1,4 @@
-app.controller('toppingsController', function($scope, toppingsService){
+app.controller('toppingsController', function($scope, $rootScope, toppingsService){
   init();
   function init() {
     $scope.newTopping = {};

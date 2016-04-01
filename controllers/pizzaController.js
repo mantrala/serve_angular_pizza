@@ -12,4 +12,6 @@ app.controller('pizzaController', function($scope, pizzaService){
     $scope.newPizza.name = "";
     $scope.newPizza.description = "";
   };
+
+  $scope.showEdit = false;
 });

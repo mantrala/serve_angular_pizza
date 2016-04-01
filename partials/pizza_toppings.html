@@ -1,0 +1,47 @@
+<div class="row">
+  <a class="btn btn-warning" href="#/pizza">Go Back</a>
+</div>
+
+<br/>
+<div class="row">
+  <div class="col-md-12" ng-show="pizzaToppingsText().length > 0">
+    Pizza: <strong>{{name}}</strong> has toppings:
+    <strong>{{ pizzaToppingsText() }}</strong>
+  </div>
+  <div class="col-md-12" ng-show="pizzaToppingsText().length == 0">
+    Pizza: <strong>{{name}}</strong> has no toppings.
+  </div>
+</div>
+
+<br/>
+<div class="row">
+  <div class="col-md-12">
+    There are {{ availableToppings().length }} toppings available to add:
+    <button class="btn btn-primary pull-right"
+            ng-disabled="!selectedTopping"
+            ng-click="addTopping()">Update toppings</button>
+  </div>
+</div>
+
+<br/>
+
+<div class="radio-inline no_indent" ng-repeat="top in availableToppings()">
+  <label>
+    <input type="radio"
+           ng-model="$parent.selectedTopping"
+           name="selectedTopping"
+           value="{{top.id}}"/>{{ top.name }}
+  </label>
+</div>
+
+<style>
+.radio-inline.no_indent,
+enableButton.radio-inline.no_indent+.radio-inline.no_indent {
+  margin-left: 0;
+  margin-right: 10px;
+
+}
+.radio-inline.no_indent:last-child {
+  margin-right: 0;
+}
+</style>
