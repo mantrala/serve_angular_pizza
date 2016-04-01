@@ -6,7 +6,7 @@ app.config(function($routeProvider, $locationProvider) {
     .when('/pizza',
         {
           controller: 'pizzaController',
-          templateUrl: '/partials/pizza.html'
+          templateUrl: 'partials/pizza.html'
         })
     .when('/toppings',
         {
