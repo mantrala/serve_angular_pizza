@@ -1,14 +1,11 @@
-app.controller("pizzaToppingsController", function($scope, $routeParams, $http, $q){
+app.controller("pizzaToppingsController", function($scope, $routeParams, pizzaToppingsService){
   $scope.pizzaID = $routeParams.pizzaID;
   $scope.name = $routeParams.pizzaName;
 
   init();
 
   function init() {
-    var allToppings = $http.get("https://pizzaserver.herokuapp.com/toppings");
-    var pizza = $http.get("https://pizzaserver.herokuapp.com/pizzas/" + $scope.pizzaID + "/toppings/");
-
-    $q.all([allToppings, pizza]).then(function(arr){
+    pizzaToppingsService.getPizzaToppings($scope.pizzaID).then(function(arr){
       $scope.allToppings = arr[0].data;
       $scope.pizzaTopping = arr[1].data;
 
@@ -21,7 +18,7 @@ app.controller("pizzaToppingsController", function($scope, $routeParams, $http, 
         return out;
       };
     });
-  }
+  };
 
   $scope.pizzaToppingsText = function(){
     var currentTopping = "";
@@ -32,17 +29,11 @@ app.controller("pizzaToppingsController", function($scope, $routeParams, $http, 
   };
 
   $scope.addTopping = function() {
-    var self = this;
-    $http({
-      url: "https://pizzaserver.herokuapp.com/pizzas/" + $scope.pizzaID + "/toppings",
-      method: "POST",
-      data: {"topping_id": $scope.selectedTopping}
-    })
-    .then(function(response){
-      $scope.selectedTopping = null;
-      init();
-    });
-
+    pizzaToppingsService.addToppingToPizza($scope.pizzaID, $scope.selectedTopping)
+      .then(function(){
+        $scope.selectedTopping = null;
+        init();
+      });
   };
 
 });
